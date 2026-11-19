@@ -1,0 +1,87 @@
+name: Build Android APK
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-apk:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      # Installs Gradle 9.3.1 itself, so gradlew / gradle-wrapper.jar are NOT required in the repo.
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '9.3.1'
+
+      # Standard Android debug keystore (public password "android"; not a secret).
+      # Restored only when the repo does not already contain one, so the SHA-1 stays stable.
+      - name: Restore debug.keystore if missing
+        run: |
+          if [ ! -f debug.keystore ]; then
+            echo "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" | base64 -d > debug.keystore
+          fi
+
+      - name: Add google-services.json
+        env:
+          GOOGLE_SERVICES_JSON_BASE64: ${{ secrets.GOOGLE_SERVICES_JSON_BASE64 }}
+        run: |
+          if [ -n "$GOOGLE_SERVICES_JSON_BASE64" ]; then
+            echo "$GOOGLE_SERVICES_JSON_BASE64" | base64 -d > app/google-services.json
+          fi
+          if [ -f app/google-services.json ]; then
+            echo "google-services.json found."
+          else
+            echo "::warning::app/google-services.json not found. Building with a placeholder so the build is green, but Google sign-in and Firebase will NOT work in this APK until you add app/google-services.json."
+            mkdir -p app/src/main/res/values
+            cat > app/src/main/res/values/zz_ci_fallback.xml <<'XML'
+          <?xml version="1.0" encoding="utf-8"?>
+          <resources>
+              <string name="default_web_client_id" translatable="false">missing-google-services-json</string>
+          </resources>
+          XML
+          fi
+
+      - name: Accept Android SDK licenses
+        run: yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses > /dev/null || true
+
+      - name: Build debug APK
+        run: gradle :app:assembleDebug --no-daemon --stacktrace
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: mousomi-ai-debug-apk
+          path: app/build/outputs/apk/debug/*.apk
+          if-no-files-found: error
+
+      # Publishes the APK as a normal .apk file on the Releases page (no zip),
+      # at a fixed link that always points to the newest build:
+      # https://github.com/<user>/<repo>/releases/download/latest/Mousomi-AI.apk
+      - name: Publish APK to Releases
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          APK=$(ls app/build/outputs/apk/debug/*.apk | head -n 1)
+          cp "$APK" Mousomi-AI.apk
+          gh release delete latest --cleanup-tag --yes --repo "$GITHUB_REPOSITORY" || true
+          gh release create latest Mousomi-AI.apk \
+            --repo "$GITHUB_REPOSITORY" \
+            --target "$GITHUB_SHA" \
+            --title "Latest build (#${{ github.run_number }})" \
+            --notes "Debug APK built from commit $GITHUB_SHA" \
+            --prerelease

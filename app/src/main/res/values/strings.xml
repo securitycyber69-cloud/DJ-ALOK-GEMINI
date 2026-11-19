@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">Mousomi AI</string>
+    <string name="cd_open_drawer">Open navigation menu</string>
+    <string name="cd_model_selector">Select AI model</string>
+    <string name="cd_new_chat">Start new chat</string>
+    <string name="cd_profile_avatar">Account and settings</string>
+    <string name="cd_gemini_sparkle">Gemini sparkle emblem</string>
+    <string name="cd_add_attachment">Add attachment</string>
+    <string name="cd_voice_input">Voice input</string>
+    <string name="cd_gemini_live">Open Gemini Live voice mode</string>
+    <string name="cd_send_message">Send message</string>
+    <string name="cd_back">Navigate back</string>
+    <string name="cd_toggle_visibility">Toggle API key visibility</string>
+    <string name="cd_inline_image_preview">Inline image preview</string>
+
+    <string name="top_bar_gemini">Gemini</string>
+    <string name="top_bar_auto">Auto</string>
+    <string name="top_bar_upgrade">Upgrade</string>
+    <string name="greeting_line_one">The mic is yours,</string>
+    <string name="greeting_line_two">HACKER</string>
+
+    <string name="suggestion_story">Spark a story idea from my experiences</string>
+    <string name="suggestion_captions">Create engaging video captions</string>
+    <string name="suggestion_wallpaper">Make a cutout phone wallpaper</string>
+
+    <string name="mode_chat">Chat</string>
+    <string name="mode_task">Task</string>
+    <string name="input_placeholder_chat">Ask Gemini</string>
+    <string name="input_placeholder_task">Assign a task to Gemini</string>
+
+    <string name="settings_title">Settings</string>
+    <string name="settings_subtitle">Configure API credentials and appearance for Mousomi AI</string>
+    <string name="settings_gemini_key_label">Google Gemini API Key</string>
+    <string name="settings_gemini_key_placeholder">AIzaSy…</string>
+    <string name="settings_groq_key_label">Groq API Key</string>
+    <string name="settings_groq_key_placeholder">gsk_…</string>
+    <string name="settings_save_button">Save Settings</string>
+    <string name="settings_saved_message">Settings saved for Phase 1 UI</string>
+    <string name="settings_theme_label">Appearance</string>
+    <string name="notification_listener_label">Mousomi AI Smart Notifications</string>
+    <string name="control_center_title">Mousomi Control Center</string>
+    <string name="cd_toggle_edge_light">Toggle Edge Light preview</string>
+    <string name="cd_stop_screen_share">Stop screen sharing</string>
+</resources>

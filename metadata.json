@@ -1,0 +1,6 @@
+{
+  "name": "Mousomi AI",
+  "description": "Mousomi AI — Gemini-inspired conversational assistant UI with edge-to-edge layout, inline image preview chat bubbles, voice/live overlays, and API key settings.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
